@@ -46,6 +46,7 @@ class TypeParser
 	/** @phpstan-impure */
 	public function parse(TokenIterator $tokens): Ast\Type\TypeNode
 	{
+		$tokens->stripComments();
 		$startLine = $tokens->currentTokenLine();
 		$startIndex = $tokens->currentTokenIndex();
 		if ($tokens->isCurrentTokenType(Lexer::TOKEN_NULLABLE)) {
